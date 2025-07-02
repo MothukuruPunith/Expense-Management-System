@@ -95,17 +95,9 @@ Ensure MySQL is running and create a database named `expense_manager`.
 CREATE DATABASE expense_manager;
 ```
 
-Then, create the `expenses` table:
+Then, run expense_db_creation.sql file in mysql
 
-```sql
-CREATE TABLE expenses (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    expense_date DATE NOT NULL,
-    amount FLOAT NOT NULL,
-    category VARCHAR(100),
-    notes TEXT
-);
-```
+
 
 ### 5. Run Backend (FastAPI)
 
