@@ -21,7 +21,7 @@ def get_db_cursor(commit=False):
         # This allows local testing to still work if needed
         DB_HOST = "sql209.infinityfree.com"
         DB_USER = "if0_40606242"
-        DB_PASS = "WpcV4u6c7t"
+        DB_PASS = "RpCV#u&c7i"
         DB_NAME = "if0_40606242_expense_manager"
         
         # If we are in the cloud and fall back here, the connection will fail.
@@ -114,4 +114,5 @@ if __name__ == "__main__":
     # for data in data:
     #     print(data)
     print(fetch_summary_by_month())
+
 
