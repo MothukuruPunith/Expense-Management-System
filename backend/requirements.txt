@@ -1,3 +1,11 @@
+
+fastapi
+uvicorn[standard]
+pymysql
+sqlalchemy
+python-dotenv
+python-multipart
+EOF
 altair==5.5.0
 fastapi==0.115.14
 mysql-connector-python==9.3.0
@@ -6,3 +14,4 @@ prompt_toolkit==3.0.50
 pydantic==2.11.7
 Requests==2.32.4
 streamlit==1.44.1
+
