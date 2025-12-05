@@ -4,7 +4,7 @@ from datetime import datetime
 import pandas as pd
 from prompt_toolkit.shortcuts.progress_bar import Percentage
 
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://expense-management-system-2jo3.onrender.com/"
 def analytics():
     col1,col2=st.columns(2)
     with col1:
@@ -31,4 +31,5 @@ def analytics():
         df_sorted["Total"]=df_sorted["Total"].map("{:.2f}".format)
         df_sorted["Percentage"] = df_sorted["Percentage"].map("{:.2f}".format)
         st.table(df_sorted)
+
 
