@@ -4,7 +4,7 @@ import streamlit as st
 import requests
 import altair as alt
 
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://expense-management-system-2jo3.onrender.com/"
 
 def analytics_by_month():
     response = requests.get(f"{API_URL}/analytics_month")
@@ -32,3 +32,4 @@ def analytics_by_month():
         st.table(df)
     else:
         st.error("Failed to fetch analytics data.")
+
