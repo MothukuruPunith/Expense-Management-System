@@ -1,14 +1,39 @@
+import os
 import mysql.connector
 from contextlib import contextmanager
 from logging_setup import logging_set
 logger = logging_set('db_helper')
+
 @contextmanager
 def get_db_cursor(commit=False):
+    
+    # 🌟 MODIFICATION START 🌟
+    # Read MySQL connection details from environment variables
+    DB_HOST = os.environ.get("DB_HOST")
+    DB_PORT = os.environ.get("DB_PORT", 3306) # Default MySQL port
+    DB_USER = os.environ.get("DB_USER")
+    DB_PASS = os.environ.get("DB_PASSWORD")
+    DB_NAME = os.environ.get("DB_NAME")
+    
+    # Critical Check: Ensure required variables are set
+    if not all([DB_HOST, DB_USER, DB_PASS, DB_NAME]):
+        # Fallback to local hardcoded values only if environment variables are missing
+        # This allows local testing to still work if needed
+        DB_HOST = "sql209.infinityfree.com"
+        DB_USER = "if0_40606242"
+        DB_PASS = "WpcV4u6c7t"
+        DB_NAME = "if0_40606242_expense_manager"
+        
+        # If we are in the cloud and fall back here, the connection will fail.
+        # It's highly recommended to fail early if in a production context.
+        logger.warning("Using hardcoded local database credentials. Ensure environment variables are set for cloud deployment.")
+    
     connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="expense_manager"
+        host=DB_HOST,
+        port=DB_PORT,
+        user=DB_USER,
+        password=DB_PASS,
+        database=DB_NAME
     )
 
     cursor = connection.cursor(dictionary=True)
@@ -89,3 +114,4 @@ if __name__ == "__main__":
     # for data in data:
     #     print(data)
     print(fetch_summary_by_month())
+
