@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 from datetime import datetime
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://expense-management-system-2jo3.onrender.com/"
 def add_update():
     selected_date = st.date_input("Enter Date", datetime(2025, 7, 1))
     response = requests.get(f"{API_URL}/expenses/{selected_date}")
@@ -52,4 +52,5 @@ def add_update():
                 st.success("Successfully Updated")
             else:
                 st.error("Failed to update the expenses")
+
 
